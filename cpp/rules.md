@@ -669,16 +669,16 @@ public:
 * Parameter used only in debug build can be surrounded by macro `DEBUG_ONLY(param)`
 
     ```cpp
-    #ifdef PARSING_BY_DOXYGEN
+    #ifdef DOXYGEN_PARSING
     #    define UNUSED(x) x
     #else
     #    define UNUSED(x)
     #endif
     
-    #ifdef NDEBUG
-    #    define DEBUG_ONLY(x)
-    #else
+    #if !defined(NDEBUG) || defined(DOXYGEN_PARSING)
     #    define DEBUG_ONLY(x) x
+    #else
+    #    define DEBUG_ONLY(x)
     #endif
 
     /// Divides the quantity by two

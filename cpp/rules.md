@@ -661,36 +661,45 @@ public:
 ```
 
 
-## `N.PRM` &nbsp; Function parameter in `camelCase`
+`N.PRM` &nbsp; Function parameter in `camelCase`
+------------------------------------------------
 
-* Underscore `'_'` can be accepted if consistent with the whole (`lower_case`)
-* Unused parameter should be commented  (see `-Wunused`)
-* If documentation is wished for an unused parameter or the parameter is used
-in debug only, you should use the macros UNUSED_PARAMETER (=never used), or
-UNUSED_PARAMETER_REL(=used in debug only), to let Doxygen know about the parameter
-name and let you document it normally. These macros are defined in optiq-utils,
-macros library, with header name "macros/UnusedParameters.hpp"
+* Underscore `'_'` can be accepted if actual scope is consistent (e.g. `lower_case` naming)
+* To avoid warning due to the flag `-Wunused` => Comment unused parameters or use a macro `UNUSED(param)` to let Doxygen know about the parameter
+* Parameter used only in debug build can be surrounded by macro `DEBUG_ONLY(param)`
+
     ```cpp
-    #include "macros/UnusedParamters.hpp"
+    #ifdef PARSING_BY_DOXYGEN
+    #    define UNUSED(x) x
+    #else
+    #    define UNUSED(x)
+    #endif
     
+    #ifdef NDEBUG
+    #    define DEBUG_ONLY(x)
+    #else
+    #    define DEBUG_ONLY(x) x
+    #endif
+
+    /// Divides the quantity by two
     int32_t divideByTwo (int32_t qty, bool /*force*/) { return qty/2; }
 
-    /** \param[in] force dummy comment */
-    int32_t divideByTwo (int32_t qty, bool UNUSED_PARAMETER(force)) { return qty/2; }
+    /// Divides the quantity by two
+    /// \param[in] force dummy comment
+    int32_t divideByTwo (int32_t qty, bool UNUSED(force)) { return qty/2; }
 
-    /** \param[in] force dummy comment */
-    int32_t divideByTwo( int32_t qty
-                       , bool  UNUSED_PARAMETER_REL(force)
-                       )
+    /// Divides the quantity by two
+    int32_t divideByTwo (int32_t         qty,    ///<[in] quantity
+                         bool DEBUG_ONLY(force)) ///<[in] dummy comment
     {
-        assert(!force);
-        
+        assert(force==true || force==false);
         return qty/2;
     }
-    ````
+    ```
 
 
-## `N.TTP` &nbsp; Type template parameter in `T_CamelCase`
+`N.TTP` &nbsp; Type template parameter in `T_CamelCase`
+-------------------------------------------------------
 
 ```cpp
 template<typename T_FirstType, template<typename> typename T_SecondType = MyClassArray>

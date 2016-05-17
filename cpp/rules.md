@@ -664,9 +664,11 @@ public:
 `N.PRM` &nbsp; Function parameter in `camelCase`
 ------------------------------------------------
 
-* Underscore `'_'` can be accepted if actual scope is consistent (e.g. `lower_case` naming)
-* To avoid warning due to the flag `-Wunused` => Comment unused parameters or use a macro `UNUSED(param)` to let Doxygen know about the parameter
-* Parameter used only in debug build can be surrounded by macro `DEBUG_ONLY(param)`
+* Underscore `'_'` can be accepted if current scope is consistent (e.g. other functions use same naming)
+* Fix warning produce by flag `-Wunused`
+    * Comment unused parameters
+    * or use a macro `UNUSED(param)` (this macro let Doxygen knowing about the parameter name)
+    *  macro `DEBUG_ONLY(param)` when used only in debug build
 
     ```cpp
     #ifdef DOXYGEN_PARSING

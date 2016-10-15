@@ -11,7 +11,7 @@ http://www.slideshare.net/Kevlin/what-we-talk-about-when-we-talk-about-unit-test
 Test
 ====
 
-![cover](https://imagery.pragprog.com/products/59/tpp_xlargecover.jpg?1339433898) The Pragmatic Programmer by Andrew Hunt and David Thomas
+The Pragmatic Programmer by Andrew Hunt and David Thomas ![Book cover](https://imagery.pragprog.com/products/59/tpp_xlargecover.jpg)
 
 Tip 49
 

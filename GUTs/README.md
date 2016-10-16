@@ -123,7 +123,7 @@ Coverage levels
 * **File**/**Class**/**Function**
 * **Line**/**Statement**
 * **Branch** (exemple : toutes les combinaisons de `if(a && b && c)`)
-* **Value** (Couverture de données)
+* **Value** (couverture des plages de valeurs)
 
 Coverage pourcentage
 ====================

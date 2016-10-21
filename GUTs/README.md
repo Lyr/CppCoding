@@ -50,7 +50,7 @@ Un bonne définition du "Test Unitaire"
 * Les tests unitaires ne doivent pas interférer entre eux (même un test avec lui-même).
     
     * Donc ils peuvent tous être exécutés en parallèle
-    * Pas d'accé aux ressources file-system, réseau, affinité CPU, base de données
+    * Pas d'accés aux ressources file-system, réseau, affinité CPU, base de données
 
 * Ce qui est unitaire, c'est la fonctionnalité testée
     

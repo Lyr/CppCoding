@@ -253,7 +253,7 @@ do
     while read f g
     do
         [[ -f "${f%/*}/$h" ]] &&
-        sed "s|.$g|$h|" -i "$f"
+        sed "s|.$g|\"$h\"|" -i "$f"
     done
 done
 ```

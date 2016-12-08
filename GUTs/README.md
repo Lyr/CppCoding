@@ -9,7 +9,7 @@ TDD et BDD préconisent d'écrire les tests :
   * **GUT**s = **G**ood **U**nit **T**ests
   * Chaque fonction de test doit échouer pour une unique raison ;
   * Le nom de la fonction de test doit exprimer un élément de la spécification ;
-  * Les fonctions de tests sont la documentation de la fontionnalité ;
+  * Les fonctions de tests sont la documentation de la fonctionnalité ;
   * ...
 
 On peut écrire des GUTs même si l'on ne respecte pas scrupuleusement les TDD/BDD.
